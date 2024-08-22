@@ -4,7 +4,7 @@
 
 ## 如何运行
 
-来到 Linux 环境下，确保安装了 gcc 和 CMake 套件，然后，来到 clone 项目下来之后的项目根目录，执行，
+来到 Linux 环境下，确保安装了 gcc 和 CMake 套件，然后，把项目根目录下的 CMakeLists.txt 中的 `add_executable` 这一行中的源文件替换成你想要编译运行的代码文件的相对路径，然后，在项目的根目录执行，
 
 ```bash
 ./llaunch.sh
