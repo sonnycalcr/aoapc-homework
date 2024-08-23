@@ -53,7 +53,7 @@ struct State {
     inline void setP(int p) { g = ((g >> 4) << 4) | p; } // 设置机器人的位置，这里先右移再左移 4 位清除原有的数据
 };
 
-vector<int> G[MAXN]; // 图的邻接矩阵表示，题目中简化成了树(有向无环图)
+vector<int> G[MAXN]; // 图的邻接矩阵表示，题目中简化成了树(无环图)
 MemPool<Node> pool;  // 链表节点分配，用 MemPool 比较好管理内存
 // n: 顶点数；m: 障碍物(石头)数量；S: 源，即机器人的起点位置；T: 目标位置
 // O: 每一个石头的位置编号
