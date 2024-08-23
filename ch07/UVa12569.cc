@@ -53,7 +53,7 @@ struct State {
     inline void setP(int p) { g = ((g >> 4) << 4) | p; } // 设置机器人的位置，这里先右移再左移 4 位清除原有的数据
 };
 
-vector<int> G[MAXN]; // 图的邻接矩阵表示，因为虽然题目中说的是树，但是不是我们平时所见到的那种二叉树、三叉树
+vector<int> G[MAXN]; // 图的邻接矩阵表示，题目中简化成了树(有向无环图)
 MemPool<Node> pool;  // 链表节点分配，用 MemPool 比较好管理内存
 // n: 顶点数；m: 障碍物(石头)数量；S: 源，即机器人的起点位置；T: 目标位置
 // O: 每一个石头的位置编号
@@ -75,7 +75,7 @@ ostream &operator<<(ostream &os, Node *p) {
 
 // 尝试移动在点 from 上的物体(机器人或者石头)
 void tryMove(const State &s, int from, queue<State> &q) {
-    int rp = s.getP();
+    int rp = s.getP(); // 获取当前状态下机器人的位置编号
     for (auto to : G[from]) {
         if ((to == rp) || s[to]) // to 和当前状态的机器人位置重合或者 to 的位置上有机器人
             continue;
