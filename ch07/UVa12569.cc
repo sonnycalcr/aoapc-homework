@@ -77,7 +77,7 @@ ostream &operator<<(ostream &os, Node *p) {
 void tryMove(const State &s, int from, queue<State> &q) {
     int rp = s.getP(); // 获取当前状态下机器人的位置编号
     for (auto to : G[from]) {
-        if ((to == rp) || s[to]) // to 和当前状态的机器人位置重合或者 to 的位置上有机器人
+        if ((to == rp) || s[to]) // to 和当前状态的机器人位置重合或者 to 的位置上有石头
             continue;
         int ng = s.g;
         if (from == rp)
